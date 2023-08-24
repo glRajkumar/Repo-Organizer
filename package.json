@@ -2,14 +2,24 @@
   "name": "git-repo-names",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "start": ""
+    "build": "tsc",
+    "start": "node dist/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@fastify/cors": "^8.3.0",
+    "@fastify/env": "^4.2.0",
+    "@notionhq/client": "^2.2.11",
+    "axios": "^1.4.0",
+    "fastify": "^4.21.0",
     "simple-git": "^3.19.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.5.4",
+    "typescript": "^5.1.6"
   }
 }
