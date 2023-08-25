@@ -3,7 +3,7 @@ import FastifyCors from '@fastify/cors';
 import FastifyEnv from '@fastify/env';
 
 import envOptions from "./schemas/env";
-import routes from "./routes/test";
+import githubRoutes from "./routes/github";
 
 const app: FastifyInstance = Fastify({
   logger: true
@@ -12,7 +12,7 @@ const app: FastifyInstance = Fastify({
 app
   .register(FastifyCors)
   .register(FastifyEnv, envOptions)
-  .register(routes)
+  .register(githubRoutes)
 
 const start = async () => {
   try {

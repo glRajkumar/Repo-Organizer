@@ -2,9 +2,9 @@ import type { FastifyEnvOptions } from '@fastify/env';
 
 const envSchema = {
   type: 'object',
-  required: ["test"],
+  required: ["rootDir"],
   properties: {
-    test: { type: 'string' }
+    rootDir: { type: 'string' }
   },
   additionalProperties: false
 }
