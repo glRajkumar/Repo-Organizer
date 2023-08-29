@@ -1,9 +1,10 @@
 import { FastifyPluginCallback } from 'fastify';
 import { listGitReposInFolder } from '../controllers/github';
+import { getReposSchema } from '../schemas/github';
 
 const githubRoutes: FastifyPluginCallback = async (fastify, opts, done) => {
   fastify
-    .get("/", listGitReposInFolder)
+    .get("/", getReposSchema, listGitReposInFolder)
 
   done()
 }
