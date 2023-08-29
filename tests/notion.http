@@ -1,0 +1,15 @@
+@host = http://localhost:3000/notion
+
+### 
+POST {{host}}
+Content-Type: application/json
+
+{
+  "list": [
+    {
+      "repoName": "str",
+      "originLink": "str"
+    }
+  ]
+}
+

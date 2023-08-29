@@ -1,4 +1,4 @@
-const str = { type: 'string' }
+export const str = { type: 'string' }
 
 const repo = {
   type: 'object',
@@ -8,19 +8,15 @@ const repo = {
   }
 }
 
-const arrOfRepos = {
+export const arrOfRepos = {
   type: 'array',
   items: repo
 }
 
-const getReposSchema = {
+export const getReposSchema = {
   schema: {
     response: {
       200: arrOfRepos
     }
   }
-}
-
-export {
-  getReposSchema
 }

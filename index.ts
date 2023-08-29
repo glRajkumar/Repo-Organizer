@@ -4,6 +4,7 @@ import FastifyEnv from '@fastify/env';
 
 import envOptions from "./schemas/env";
 import githubRoutes from "./routes/github";
+import notionRoutes from "./routes/notion";
 
 const app: FastifyInstance = Fastify({
   logger: true
@@ -12,7 +13,8 @@ const app: FastifyInstance = Fastify({
 app
   .register(FastifyCors)
   .register(FastifyEnv, envOptions)
-  .register(githubRoutes)
+  .register(githubRoutes, { prefix: "/github" })
+  .register(notionRoutes, { prefix: "/notion" })
 
 const start = async () => {
   try {
