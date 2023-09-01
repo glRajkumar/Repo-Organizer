@@ -7,9 +7,10 @@ Content-Type: application/json
 {
   "list": [
     {
-      "repoName": "str",
-      "originLink": "str"
-    }
+      "repoName": "",
+      "originLink": "",
+      "category": ""
+    }  
   ]
 }
 
