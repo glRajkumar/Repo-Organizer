@@ -8,10 +8,5 @@ export const postNotionSchema = {
         list: arrOfRepos
       }
     },
-    response: {
-      200: {
-        type: "string"
-      }
-    }
   }
 }

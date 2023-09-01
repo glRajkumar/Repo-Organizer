@@ -1,4 +1,4 @@
-export const str = { type: 'string' }
+import { str } from './base';
 
 const repo = {
   type: 'object',
