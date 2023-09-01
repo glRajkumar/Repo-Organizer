@@ -8,7 +8,7 @@ const repo = {
   }
 }
 
-export const arrOfRepos = {
+const arrOfRepos = {
   type: 'array',
   items: repo
 }
