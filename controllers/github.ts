@@ -19,7 +19,10 @@ async function getRepoInfo(repoPath: string) {
 
   } catch (error) {
     console.error(`Error processing ${repoPath}:`, error);
-    return null;
+    return {
+      repoName: path.basename(repoPath),
+      originLink: "remote",
+    };
   }
 }
 
