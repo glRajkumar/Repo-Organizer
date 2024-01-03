@@ -32,6 +32,18 @@ interface IQuerystring {
 
 type reqT = FastifyRequest<{ Querystring: IQuerystring }>
 
+type gitHubParamType = {
+  repoName: string
+  originLink: string
+}
+
+type cloneRepoReqT = FastifyRequest<{
+  Body: {
+    path: string
+    list: gitHubParamType[]
+  }
+}>
+
 export async function listGitReposInFolder(req: reqT, res: FastifyReply) {
   const folderPath = req?.query?.path || ""
   const rootDir = process.env.rootDir as string
@@ -76,4 +88,26 @@ export async function listGitReposInFolder(req: reqT, res: FastifyReply) {
   //     console.log('Output written to', outputPath);
   //   }
   // });
+}
+
+
+export async function cloneRepoAtPath(req: cloneRepoReqT, res: FastifyReply) {
+  const { path, list } = req.body
+  const rootDir = process.env.rootDir as string
+
+  for (const { repoName, originLink } of list) {
+    const actualPath = `${rootDir}/${path}/${repoName}`
+
+    try {
+      if (originLink === "remote") throw new Error("fatal: It's an remote repo")
+
+      await simpleGit().clone(originLink, actualPath)
+      console.log(`${repoName} cloned successfully`)
+
+    } catch (error: any) {
+      console.error(`Error cloning ${repoName}`, error?.message);
+    }
+  }
+
+  return "Cloning finished"
 }

@@ -1,6 +1,24 @@
 @host = http://localhost:3000/github
 
 # "../../../../Documents/Viz"
-### Get
-GET {{host}}?path=Documents/Viz
+### Get repo details from specific path
+GET {{host}}?path=Documents/gpt
 
+
+### Clone repo to the specific path
+POST {{host}}
+Content-Type: application/json
+
+{
+  "path": "Documents/a",
+  "list": [
+    {
+      "repoName": "Sample",
+      "originLink": "https://github.com/namruthahari/Sample-Git-Repo.git"
+    },
+    {
+      "repoName": "Sample",
+      "originLink": "remote"
+    }
+  ]
+}
